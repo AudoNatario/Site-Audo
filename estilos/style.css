@@ -183,46 +183,17 @@ a:hover {
 /* ==========================
    RESPONSIVIDADE MOBILE
    ========================== */
+/* RESPONSIVIDADE PARA CELULAR */
 @media (max-width: 600px) {
   body {
-    padding-top: 120px;
+    padding-top: 130px;
   }
 
   h1 {
-    font-size: 1.5em;
+    font-size: 1.6em;
     padding: 0 15px;
-    margin-top: 20px;
-    line-height: 1.2em;
     text-align: center;
-  }
-
-  #menu-fixo ul {
-    flex-direction: column;
-    align-items: center;
-    gap: 8px;
-    padding: 10px 5px;
-  }
-
-  #menu-fixo ul li {
-    width: 100%;
-    text-align: center;
-  }
-
-  #menu-fixo ul li a {
-    font-size: 1em;
-    display: block;
-    padding: 10px 0;
-    border-bottom: 1px solid rgba(255,255,255,0.2);
-  }
-
-  #btn-darkmode {
-    position: fixed;
-    top: auto;
-    bottom: 15px;
-    right: 15px;
-    z-index: 1001;
-    font-size: 0.9em;
-    padding: 8px 12px;
+    margin-top: 10px;
   }
 
   .container {
@@ -234,6 +205,31 @@ a:hover {
     padding: 15px;
   }
 
+  #menu-fixo ul {
+    flex-direction: column;
+    gap: 10px;
+    padding: 15px 0;
+  }
+
+  #menu-fixo ul li {
+    width: 100%;
+    text-align: center;
+  }
+
+  #menu-fixo ul li a {
+    font-size: 1em;
+    padding: 10px 0;
+    display: block;
+  }
+
+  #btn-darkmode {
+    font-size: 0.9em;
+    padding: 8px 12px;
+    top: auto;
+    bottom: 15px;
+    right: 15px;
+  }
+
   .linguagens img,
   .jogos img {
     width: 60px;
@@ -241,14 +237,21 @@ a:hover {
   }
 }
 
-/* Ajustes extras pra Safari iOS */
+/* FIX Safari iOS */
 @supports (-webkit-touch-callout: none) {
   .linguagens img,
   .jogos img {
-    object-fit: contain;
+    object-fit: cover;
     display: block;
+    width: 60px;
+    height: 60px;
+  }
+
+  #menu-fixo {
+    overflow-x: auto;
   }
 }
+
 
 
 /* Dark mode */
