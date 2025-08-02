@@ -180,7 +180,6 @@ a:hover {
   font-size: 14px;
 }
 
-/* Responsividade para mobile */
 @media (max-width: 600px) {
   body {
     padding: 10px 0 40px 0;
@@ -188,7 +187,7 @@ a:hover {
 
   .container {
     padding: 20px 10px 0 10px;
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr; /* Coluna única no celular */
   }
 
   h1 {
@@ -215,6 +214,7 @@ a:hover {
     height: 40px;
   }
 }
+
 
 /* Safari Mobile fix */
 @supports (-webkit-touch-callout: none) {
