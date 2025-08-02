@@ -1,51 +1,57 @@
-const btnModo = document.getElementById('modo-claro');
-const body = document.body;
-const menuLinks = document.querySelectorAll('nav ul li a');
-const menuToggle = document.getElementById('menu-toggle');
-const menu = document.getElementById('menu');
+// Botão Dark Mode
+const btn = document.getElementById('btn-darkmode');
 
-// Detecta preferência de sistema
-const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-const saved = localStorage.getItem('tema');
+// Detecta preferência do sistema na primeira visita
+const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+const savedTheme = localStorage.getItem('darkMode');
 
-// Define tema inicial
-if (saved === 'dark' || (!saved && prefersDark)) {
-  body.classList.add('dark');
-  btnModo.textContent = 'Modo Claro';
-} else {
-  btnModo.textContent = 'Modo Escuro';
+if (!savedTheme && prefersDark) {
+  document.body.classList.add('dark-mode');
+  btn.textContent = 'Modo Claro';
 }
 
-// Alterna tema
-btnModo.addEventListener('click', () => {
-  body.classList.toggle('dark');
-  if (body.classList.contains('dark')) {
-    localStorage.setItem('tema', 'dark');
-    btnModo.textContent = 'Modo Claro';
+if (savedTheme === 'enabled') {
+  document.body.classList.add('dark-mode');
+  btn.textContent = 'Modo Claro';
+} else if (savedTheme === 'disabled') {
+  document.body.classList.remove('dark-mode');
+  btn.textContent = 'Modo Escuro';
+}
+
+btn.addEventListener('click', () => {
+  document.body.classList.toggle('dark-mode');
+
+  if (document.body.classList.contains('dark-mode')) {
+    btn.textContent = 'Modo Claro';
+    localStorage.setItem('darkMode', 'enabled');
   } else {
-    localStorage.setItem('tema', 'light');
-    btnModo.textContent = 'Modo Escuro';
+    btn.textContent = 'Modo Escuro';
+    localStorage.setItem('darkMode', 'disabled');
   }
 });
 
-// Scroll suave e destaque
+// Scroll suave e destaque do link ativo
+const menuLinks = document.querySelectorAll('#menu-fixo a');
+
 menuLinks.forEach(link => {
   link.addEventListener('click', e => {
     e.preventDefault();
-    const id = link.getAttribute('href');
-    const destino = document.querySelector(id);
-    destino.scrollIntoView({ behavior: 'smooth' });
 
-    // Remove destaque anterior
+    const id = link.getAttribute('href');
+    document.querySelector(id).scrollIntoView({ behavior: 'smooth' });
+
+    // Remover destaque anterior
     menuLinks.forEach(l => l.classList.remove('ativo'));
+    // Adicionar destaque ao clicado
     link.classList.add('ativo');
 
-    // Fecha menu mobile
-    menu.classList.remove('aberto');
+    // Fecha o menu no modo mobile
+    document.getElementById('menu-fixo').classList.remove('aberto');
   });
 });
 
-// Menu toggle (mobile)
-menuToggle.addEventListener('click', () => {
-  menu.classList.toggle('aberto');
+// Botão menu responsivo
+const btnMenu = document.getElementById('btn-menu');
+btnMenu.addEventListener('click', () => {
+  document.getElementById('menu-fixo').classList.toggle('aberto');
 });

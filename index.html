@@ -8,91 +8,93 @@
   <link rel="icon" href="favicon.ico" type="image/x-icon" />
 </head>
 <body>
-  <header>
-    <nav>
-      <button id="menu-toggle">☰</button>
-      <ul id="menu">
-        <li><a href="#sobre">Sobre Mim</a></li>
-        <li><a href="#aprendizado">O que estou aprendendo</a></li>
-        <li><a href="#hobbies">Hobbies e Jogos</a></li>
-        <li><a href="#projetos">Projetos</a></li>
-        <li><a href="#cursos">Cursos</a></li>
-        <li><a href="#contato">Contato</a></li>
-      </ul>
-      <button id="modo-claro" class="modo-claro">Modo Claro</button>
-    </nav>
-  </header>
+  <button id="btn-darkmode">Modo Escuro</button>
+
+  <nav id="menu-fixo">
+    <div class="logo">Audo</div>
+    <div class="menu-toggle" id="menu-toggle">&#9776;</div>
+    <ul id="menu-list">
+      <li><a href="#curiosidades">Sobre Mim</a></li>
+      <li><a href="#aprendizado">O que estou aprendendo</a></li>
+      <li><a href="#hobbies">Hobbies e Jogos</a></li>
+      <li><a href="#projetos">Projetos</a></li>
+      <li><a href="#cursos">Cursos</a></li>
+      <li><a href="#contato">Contato</a></li>
+    </ul>
+  </nav>
 
   <h1>Meu Universo Digital | Audo Natário</h1>
 
-  <main class="card" id="sobre">
-    <h2>Sobre Mim</h2>
-    <p>Nasci em <strong>Maringá - PR</strong> em 2006. Há mais de 10 anos, me mudei para o <strong>Mato Grosso do Sul</strong>, onde cresci e desenvolvi meu interesse por tecnologia, programação e criatividade.</p>
-    <p>Atualmente estudo <strong>Ciência da Computação</strong> na <strong>UCDB - Universidade Católica Dom Bosco</strong>. Este site reúne meus interesses, projetos e aprendizados.</p>
-  </main>
+  <div class="container">
+    <main id="curiosidades">
+      <h2>Sobre Mim</h2>
+      <p>Nasci em <strong>Maringá - Paraná</strong> em 2006. Há mais de 10 anos, me mudei para o estado do <strong>Mato Grosso do Sul</strong>, onde cresci e desenvolvi minha paixão por tecnologia e seu potencial de transformação.</p>
+      <p>Hoje sou estudante de <strong>Ciência da Computação</strong> na <strong>UCDB - Universidade Católica Dom Bosco</strong>. Este portfólio reúne minha história, meus interesses e meus projetos em desenvolvimento.</p>
+    </main>
 
-  <main class="card" id="aprendizado">
-    <h2>O que estou aprendendo</h2>
-    <ul>
-      <li>HTML, CSS e JavaScript</li>
-      <li>Python com o Curso em Vídeo</li>
-      <li>Java, PHP e SQL</li>
-    </ul>
-    <div class="linguagens">
-      <img src="imagens/html5.png" alt="HTML" />
-      <img src="imagens/css3.png" alt="CSS" />
-      <img src="imagens/js.png" alt="JavaScript" />
-      <img src="imagens/python.png" alt="Python" />
-      <img src="imagens/java.png" alt="Java" />
-      <img src="imagens/php.png" alt="PHP" />
-      <img src="imagens/sql.png" alt="SQL" />
-    </div>
-  </main>
+    <main id="aprendizado">
+      <h2>O que estou aprendendo</h2>
+      <ul>
+        <li>HTML, CSS e JavaScript</li>
+        <li>Python com o curso do Gustavo Guanabara</li>
+        <li>Java, PHP e SQL</li>
+      </ul>
+      <div class="linguagens">
+        <img src="imagens/html5.png" alt="HTML">
+        <img src="imagens/css3.png" alt="CSS">
+        <img src="imagens/js.png" alt="JavaScript">
+        <img src="imagens/python.png" alt="Python">
+        <img src="imagens/java.png" alt="Java">
+        <img src="imagens/php.png" alt="PHP">
+        <img src="imagens/sql.png" alt="SQL">
+      </div>
+    </main>
 
-  <main class="card" id="hobbies">
-    <h2>Hobbies e Jogos</h2>
-    <p>Sou apaixonado por jogos e também curioso sobre o desenvolvimento deles.</p>
-    <div class="jogos">
-      <img src="imagens/valorant.jpg" alt="Valorant" />
-      <img src="imagens/gtav.png" alt="GTA V" />
-      <img src="imagens/RDR2.png" alt="RDR2" />
-      <img src="imagens/cs2.jpg" alt="CS2" />
-      <img src="imagens/rocket.jpg" alt="Rocket League" />
-      <img src="imagens/fifa.webp" alt="FIFA 25" />
-      <img src="imagens/minecraft.jpg" alt="Minecraft" />
-      <img src="imagens/forza5.png" alt="Forza 5" />
-    </div>
-  </main>
+    <main id="hobbies">
+      <h2>Hobbies e Jogos</h2>
+      <p>Sou apaixonado por jogos e sempre me interessei em entender como eles são desenvolvidos.</p>
+      <div class="jogos">
+        <img src="imagens/valorant.jpg" alt="Valorant">
+        <img src="imagens/gtav.png" alt="GTA V">
+        <img src="imagens/RDR2.png" alt="RDR2">
+        <img src="imagens/cs2.jpg" alt="CS2">
+        <img src="imagens/rocket.jpg" alt="Rocket League">
+        <img src="imagens/fifa.webp" alt="FIFA 25">
+        <img src="imagens/minecraft.jpg" alt="Minecraft">
+        <img src="imagens/forza5.png" alt="Forza 5">
+      </div>
+    </main>
 
-  <main class="card" id="projetos">
-    <h2>Projetos</h2>
-    <ul>
-      <li><strong>Calculadora Simples:</strong> Python + lógica de programação</li>
-      <li><strong>Página de Cadastro:</strong> HTML + CSS + JS</li>
-    </ul>
-    <p>Veja mais no meu <a href="https://github.com/AudoNatario" target="_blank">GitHub</a>.</p>
-  </main>
+    <main id="projetos">
+      <h2>Projetos</h2>
+      <ul>
+        <li><strong>Calculadora Simples:</strong> Python + lógica de programação</li>
+        <li><strong>Página de Cadastro:</strong> HTML + CSS + JavaScript</li>
+      </ul>
+      <p>Mais no meu <a href="https://github.com/AudoNatario" target="_blank">GitHub</a>.</p>
+    </main>
 
-  <main class="card" id="cursos">
-    <h2>Cursos e Formação</h2>
-    <ul>
-      <li><strong>Python 3 – Mundo 1 e 2 (80h)</strong> – Curso em Vídeo / CEV</li>
-      <li><strong>JavaScript (40h)</strong> – Curso em Vídeo / CEV</li>
-      <li><strong>Git e GitHub (20h)</strong> – Curso em Vídeo / CEV</li>
-      <li><strong>HTML5 e CSS3 (40h)</strong> – Curso em Vídeo / CEV</li>
-      <li><strong>Conceitos Básicos de Web</strong> – Fundação Bradesco</li>
-      <li><strong>Assistente Administrativo</strong> – SENAC</li>
-      <li><strong>Excel</strong> – Fundação Bradesco</li>
-      <li><strong>Lógica de Programação</strong> – Fundação Bradesco</li>
-      <li><strong>Power BI</strong> – Curso pelo YouTube</li>
-    </ul>
-  </main>
+    <main id="cursos">
+      <h2>Cursos e Formação</h2>
+      <ul class="lista-cursos">
+        <li><strong>Python 3 – Mundo 1 e 2 (80h)</strong> – Curso em Vídeo / CEV</li>
+        <li><strong>JavaScript (40h)</strong> – Curso em Vídeo / CEV</li>
+        <li><strong>Git e GitHub (20h)</strong> – Curso em Vídeo / CEV</li>
+        <li><strong>HTML5 e CSS3 (40h)</strong> – Curso em Vídeo / CEV</li>
+        <li><strong>Conceitos Básicos de Web</strong> – Fundação Bradesco</li>
+        <li><strong>Assistente Administrativo</strong> – SENAC</li>
+        <li><strong>Excel</strong> – Fundação Bradesco</li>
+        <li><strong>Lógica de Programação</strong> – Fundação Bradesco</li>
+        <li><strong>Power BI</strong> – Curso pelo YouTube</li>
+      </ul>
+    </main>
 
-  <main class="card" id="contato">
-    <h2>Contato</h2>
-    <p>Email: <a href="mailto:audo7natario@gmail.com">audo7natario@gmail.com</a></p>
-  </main>
+    <main id="contato">
+      <h2>Contato</h2>
+      <p>Me envie um e-mail: <a href="mailto:audo7natario@gmail.com">audo7natario@gmail.com</a></p>
+    </main>
+  </div>
 
-  <script src="script.js"></script>
+  <script src="js/script.js" defer></script>
 </body>
 </html>
