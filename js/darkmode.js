@@ -1,67 +1,51 @@
-const btn = document.getElementById('btn-darkmode');
+const btnModo = document.getElementById('modo-claro');
+const body = document.body;
+const menuLinks = document.querySelectorAll('nav ul li a');
+const menuToggle = document.getElementById('menu-toggle');
+const menu = document.getElementById('menu');
 
-// Detecta a preferência do sistema na primeira visita
-const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-const savedTheme = localStorage.getItem('darkMode');
+// Detecta preferência de sistema
+const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+const saved = localStorage.getItem('tema');
 
-// Aplica tema baseado na preferência do sistema, se o usuário ainda não escolheu manualmente
-if (!savedTheme && prefersDark) {
-  document.body.classList.add('dark-mode');
-  btn.textContent = 'Modo Claro';
+// Define tema inicial
+if (saved === 'dark' || (!saved && prefersDark)) {
+  body.classList.add('dark');
+  btnModo.textContent = 'Modo Claro';
+} else {
+  btnModo.textContent = 'Modo Escuro';
 }
 
-// Aplica o tema salvo pelo usuário
-if (savedTheme === 'enabled') {
-  document.body.classList.add('dark-mode');
-  btn.textContent = 'Modo Claro';
-} else if (savedTheme === 'disabled') {
-  document.body.classList.remove('dark-mode');
-  btn.textContent = 'Modo Escuro';
-}
-
-// Alterna entre claro/escuro ao clicar no botão
-btn.addEventListener('click', () => {
-  document.body.classList.toggle('dark-mode');
-
-  if (document.body.classList.contains('dark-mode')) {
-    btn.textContent = 'Modo Claro';
-    localStorage.setItem('darkMode', 'enabled');
+// Alterna tema
+btnModo.addEventListener('click', () => {
+  body.classList.toggle('dark');
+  if (body.classList.contains('dark')) {
+    localStorage.setItem('tema', 'dark');
+    btnModo.textContent = 'Modo Claro';
   } else {
-    btn.textContent = 'Modo Escuro';
-    localStorage.setItem('darkMode', 'disabled');
+    localStorage.setItem('tema', 'light');
+    btnModo.textContent = 'Modo Escuro';
   }
 });
 
-// Rolagem suave para os links do menu fixo e destaque do link ativo
-const links = document.querySelectorAll('#menu-fixo a');
-
-links.forEach(link => {
+// Scroll suave e destaque
+menuLinks.forEach(link => {
   link.addEventListener('click', e => {
     e.preventDefault();
     const id = link.getAttribute('href');
-    document.querySelector(id).scrollIntoView({
-      behavior: 'smooth'
-    });
+    const destino = document.querySelector(id);
+    destino.scrollIntoView({ behavior: 'smooth' });
 
-    // Remove 'active' de todos
-    links.forEach(l => l.classList.remove('active'));
-    // Adiciona no clicado
-    link.classList.add('active');
+    // Remove destaque anterior
+    menuLinks.forEach(l => l.classList.remove('ativo'));
+    link.classList.add('ativo');
+
+    // Fecha menu mobile
+    menu.classList.remove('aberto');
   });
 });
 
-// Opcional: adicionar destaque do menu baseado na rolagem (mais avançado)
-window.addEventListener('scroll', () => {
-  let fromTop = window.scrollY + 70; // Ajuste para compensar menu fixo
-
-  links.forEach(link => {
-    const section = document.querySelector(link.getAttribute('href'));
-    if (
-      section.offsetTop <= fromTop &&
-      section.offsetTop + section.offsetHeight > fromTop
-    ) {
-      links.forEach(l => l.classList.remove('active'));
-      link.classList.add('active');
-    }
-  });
+// Menu toggle (mobile)
+menuToggle.addEventListener('click', () => {
+  menu.classList.toggle('aberto');
 });

@@ -1,140 +1,180 @@
-/* Reset */
+/* Reset básico */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* Corpo */
 body {
-  font-family: Arial, sans-serif;
+  font-family: 'Segoe UI', sans-serif;
   background-color: #111;
   color: #fff;
-  line-height: 1.6;
+  padding-top: 60px;
   transition: background-color 0.3s, color 0.3s;
-  padding-top: 80px; /* Compensação do menu no desktop */
 }
 
-/* Header fixo */
+/* Cabeçalho fixo */
 header {
-  background-color: #6200ea;
-  color: #fff;
-  padding: 15px;
   position: fixed;
   top: 0;
   width: 100%;
+  background-color: #6600cc;
+  color: white;
   z-index: 1000;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.4);
+}
+
+/* Navegação */
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  flex-wrap: wrap;
+}
+
+nav ul {
+  list-style: none;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 20px;
 }
 
-header button {
-  background-color: #7b1fa2;
-  border: none;
-  padding: 10px 20px;
+nav ul li a {
   color: white;
   font-weight: bold;
+  text-decoration: none;
+  transition: opacity 0.3s;
+}
+
+nav ul li a:hover {
+  opacity: 0.8;
+}
+
+/* Botão do menu mobile */
+#menu-toggle {
+  display: none;
+  background: transparent;
+  border: none;
+  font-size: 28px;
+  color: white;
   cursor: pointer;
-  border-radius: 8px;
 }
 
-/* Seções */
-main {
-  padding: 20px;
+#menu-toggle:focus {
+  outline: none;
 }
 
-section {
+/* Modo claro */
+.light-mode {
+  background-color: #fff;
+  color: #000;
+}
+
+.light-mode .card {
+  background-color: #f0f0f0;
+  color: #111;
+}
+
+.light-mode header {
+  background-color: #ccccff;
+}
+
+.light-mode .modo-claro {
+  background-color: #3333cc;
+  color: #fff;
+}
+
+/* Botão de modo claro */
+.modo-claro {
+  background-color: #fff;
+  color: #333;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+.modo-claro:hover {
+  opacity: 0.85;
+}
+
+/* Cards */
+.card {
   background-color: #222;
-  padding: 20px;
-  margin-bottom: 30px;
   border-radius: 12px;
-  box-shadow: 0 0 15px rgba(155, 39, 255, 0.4);
+  padding: 20px;
+  margin: 20px auto;
+  max-width: 800px;
+  box-shadow: 0 0 15px #6600cc;
 }
 
-h1, h2 {
-  color: #bb86fc;
-  margin-bottom: 15px;
-}
-
+/* Títulos */
 h1 {
   text-align: center;
-  font-size: 2em;
+  color: #9900ff;
+  margin-bottom: 20px;
 }
 
-/* Links */
-a {
-  color: #82b1ff;
-  text-decoration: none;
+h2 {
+  color: #b266ff;
+  margin-bottom: 10px;
 }
 
-a:hover {
-  text-decoration: underline;
+/* Parágrafos e listas */
+p, li {
+  line-height: 1.6;
+  font-size: 16px;
 }
 
-/* Imagens dos jogos */
-.jogos img,
-.linguagens img {
-  width: 80px;
-  height: 80px;
-  object-fit: contain;
-  margin: 10px;
-  transition: transform 0.3s;
+li {
+  margin-left: 20px;
 }
 
-.jogos img:hover,
-.linguagens img:hover {
-  transform: scale(1.1);
+/* Imagens */
+img {
+  max-width: 100%;
+  height: auto;
 }
 
-/* Modo Claro */
-body.light-mode {
-  background-color: #f9f9f9;
-  color: #111;
-}
-
-body.light-mode section {
-  background-color: #fff;
-  color: #111;
-}
-
-body.light-mode header {
-  background-color: #9575cd;
-}
-
-body.light-mode h1, 
-body.light-mode h2 {
-  color: #4a148c;
-}
-
-/* Responsividade */
+/* Responsividade: celular */
 @media (max-width: 768px) {
-  header {
+  nav ul {
+    display: none;
     flex-direction: column;
-    gap: 10px;
-    align-items: center;
+    width: 100%;
+    background-color: #6600cc;
+  }
+
+  nav ul.show {
+    display: flex;
+  }
+
+  #menu-toggle {
+    display: block;
+  }
+
+  nav ul li {
+    text-align: center;
+    padding: 10px 0;
+    border-top: 1px solid #fff;
   }
 
   main {
-    padding-top: 120px; /* Compensação maior no mobile */
-  }
-
-  .jogos img,
-  .linguagens img {
-    width: 60px;
-    height: 60px;
+    padding: 10px;
   }
 }
 
-/* Safari Mobile fix */
+/* Safari fix */
 @supports (-webkit-touch-callout: none) {
-  .jogos img,
-  .linguagens img {
-    width: 60px;
-    height: 60px;
-    max-width: 100%;
+  nav ul li a {
+    font-size: 18px;
+  }
+
+  img {
     object-fit: contain;
-    display: block;
   }
 }
