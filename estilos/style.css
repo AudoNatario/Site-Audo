@@ -243,18 +243,20 @@ body.dark-mode #menu-fixo ul li a.ativo {
     flex-direction: column;
     background-color: #6a0dad;
     position: absolute;
-    top: 50px;
+    top: 60px;
     left: 0;
     width: 100%;
     display: none;
   }
-
+    #menu-fixo {
+    top: 60px; /* sobe um pouco mais o menu fixo */
+  }
   #menu-fixo ul.aberto {
     display: flex;
   }
 
   body {
-    padding-top: 100px;
+    padding-top: 130px;
   }
 }
 
