@@ -15,7 +15,7 @@ body {
   flex-direction: column;
   align-items: center;
   transition: background-color 0.4s, color 0.4s;
-  padding-top: 60px; /* espaço para header fixo */
+  padding-top: 60px;
   min-height: 100vh;
 }
 
@@ -129,7 +129,7 @@ header {
   width: 100%;
   background-color: #6a0dad;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-  z-index: 1002;
+  z-index: 1100;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -197,7 +197,7 @@ header {
   position: fixed;
   top: 50px;
   left: 0;
-  z-index: 1001;
+  z-index: 1050;
 }
 
 #menu-fixo ul {
@@ -236,42 +236,51 @@ body.dark-mode #menu-fixo ul li a.ativo {
 
 /* ===== MOBILE ===== */
 @media (max-width: 768px) {
+  body {
+    padding-top: 100px !important; /* espaço para header + menu fixo */
+  }
+
+  header {
+    padding: 10px 15px;
+  }
+
+  .left-header {
+    gap: 8px;
+  }
+
   #btn-mobile {
     display: block;
+    font-size: 1.6em;
+  }
+
+  #menu-fixo {
+    position: fixed !important;
+    top: 60px !important; /* logo abaixo do header */
+    left: 0;
+    width: 100%;
+    background-color: #6a0dad;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    z-index: 1050;
   }
 
   #menu-fixo ul {
     flex-direction: column;
-    background-color: #6a0dad;
-    position: absolute;
-    top: 50px;
-    left: 0;
-    width: 100%;
+    padding: 10px 0;
+    margin: 0;
     display: none;
   }
 
   #menu-fixo ul.aberto {
-    display: flex;
+    display: flex !important;
   }
 
   body {
-    padding-top: 80px; /* ajustado para diminuir espaço excessivo no mobile */
+    padding-top: 100px;
   }
 
-  #menu-fixo {
-    top: 40px; /* menu mais perto do topo */
-  }
-
-  .left-header {
-    gap: 5px; /* menor espaço entre botões */
-  }
-
-  #btn-mobile {
-    font-size: 1.6em;
-  }
-
-  header {
-    padding: 8px 15px;
+  /* Container com padding-top zero para evitar espaço extra */
+  .container {
+    padding-top: 0 !important;
   }
 }
 
