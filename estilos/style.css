@@ -260,34 +260,30 @@ body.dark-mode #menu-fixo ul li a:focus {
 }
 /* ... (mantém o restante do seu CSS como está até aqui) ... */
 
-/* Responsividade para telas pequenas */
 @media (max-width: 768px) {
-  #menu-fixo ul {
-    flex-wrap: wrap;
-    gap: 10px;
-    padding: 10px;
-  }
-
-  #menu-fixo ul li {
-    flex: 1 1 100%;
-    text-align: center;
+  body {
+    padding-top: 100px; /* Espaço para o menu fixo não cobrir o conteúdo */
   }
 
   h1 {
-    font-size: 1.5em;
-    margin-top: 70px;
-    padding: 0 10px;
+    margin-top: 0;
+    padding-top: 10px;
   }
 
-  .container {
-    padding: 20px 10px 0 10px;
-    display: flex;
+  #menu-fixo ul {
     flex-direction: column;
+    align-items: center;
+  }
+
+  #menu-fixo ul li {
+    width: 100%;
   }
 
   main {
-    padding: 15px;
+    margin-top: 0;
   }
+}
+
 
   .linguagens img,
   .jogos img {
