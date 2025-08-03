@@ -98,18 +98,16 @@ document.addEventListener('DOMContentLoaded', () => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add('animate__fadeIn');
-        // Se quiser animar só uma vez, descomente a linha abaixo:
-        // observer.unobserve(entry.target);
-      } else {
-        entry.target.classList.remove('animate__fadeIn');
+        observer.unobserve(entry.target); // ANIMA SÓ UMA VEZ
       }
     });
   }, {
-    threshold: 0.2, // 20% do elemento visível para ativar
+    threshold: 0.2, // Ativa quando 20% do elemento estiver visível
   });
 
   elementos.forEach(el => {
     observer.observe(el);
   });
 });
+
 
