@@ -1,16 +1,12 @@
-/* Reset básico e suavização de fontes */
-*,
-*::before,
-*::after {
+/* Reset geral e suaviza fontes */
+*, *::before, *::after {
   box-sizing: border-box;
-  -webkit-font-smoothing: antialiased; /* Safari */
-  -moz-osx-font-smoothing: grayscale;  /* Firefox */
-  -webkit-text-size-adjust: 100%; /* Evita zoom no iOS Safari */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   margin: 0;
   padding: 0;
 }
 
-/* Body e estrutura */
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background-color: #f0f0f0;
@@ -19,41 +15,27 @@ body {
   flex-direction: column;
   align-items: center;
   transition: background-color 0.4s, color 0.4s;
-  padding-top: 60px; /* espaço pro menu fixo */
+  padding-top: 60px;
   min-height: 100vh;
 }
 
-/* Título principal */
 h1 {
   margin-top: 10px;
   font-size: 2.2em;
   color: #6a0dad;
   text-align: center;
+  padding: 0 15px;
 }
 
-/* Container grid/flex responsivo */
 .container {
-  display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
-  display: -ms-flexbox;      /* TWEENER - IE 10 */
-  display: flex;             /* NEW, Spec - Chrome, Firefox, Opera, IE11+ */
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 20px;
-  justify-content: center;
   padding: 40px 20px 0 20px;
   max-width: 1200px;
   width: 100%;
 }
 
-/* Se o navegador suportar grid, usa grid */
-@supports (display: grid) {
-  .container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
-  }
-}
-
-/* Main cards */
 main {
   background-color: white;
   border-radius: 12px;
@@ -63,13 +45,10 @@ main {
 }
 
 main:hover {
-  -webkit-transform: translateY(-5px);
   transform: translateY(-5px);
-  -webkit-box-shadow: 0 10px 20px rgba(106, 13, 173, 0.3);
   box-shadow: 0 10px 20px rgba(106, 13, 173, 0.3);
 }
 
-/* Títulos das seções */
 h2 {
   color: #6a0dad;
   border-bottom: 2px solid #eee;
@@ -78,9 +57,7 @@ h2 {
   transition: color 0.4s;
 }
 
-/* Parágrafos e listas */
-p,
-li {
+p, li {
   font-size: 16px;
   color: #333;
   line-height: 1.5;
@@ -91,7 +68,6 @@ ul {
   padding-left: 20px;
 }
 
-/* Lista de cursos */
 .lista-cursos {
   list-style-type: disc;
   max-width: 600px;
@@ -106,25 +82,20 @@ ul {
   color: #6a0dad;
 }
 
-/* Fonte do nome do curso */
 .fonte-curso {
   color: #777;
   font-style: italic;
   font-size: 14px;
 }
 
-/* Linguagens e jogos - layout flex */
-.linguagens,
-.jogos {
+.linguagens, .jogos {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
   justify-content: center;
 }
 
-/* Imagens de linguagens e jogos */
-.linguagens img,
-.jogos img {
+.linguagens img, .jogos img {
   width: 50px;
   height: 50px;
   transition: transform 0.3s, box-shadow 0.3s;
@@ -133,14 +104,11 @@ ul {
   cursor: pointer;
 }
 
-.linguagens img:hover,
-.jogos img:hover {
-  -webkit-transform: scale(1.2);
+.linguagens img:hover, .jogos img:hover {
   transform: scale(1.2);
   box-shadow: 0 0 8px #6a0dad;
 }
 
-/* Links */
 a {
   color: #6a0dad;
   text-decoration: none;
@@ -153,7 +121,6 @@ a:hover {
   color: #5500aa;
 }
 
-/* Botão Dark Mode */
 #btn-darkmode {
   position: fixed;
   top: 15px;
@@ -174,7 +141,7 @@ a:hover {
   background-color: #5500aa;
 }
 
-/* Menu fixo */
+/* ===== MENU FIXO ===== */
 #menu-fixo {
   position: fixed;
   top: 0;
@@ -192,6 +159,7 @@ a:hover {
   display: flex;
   justify-content: center;
   gap: 30px;
+  flex-wrap: wrap;
 }
 
 #menu-fixo ul li a {
@@ -207,20 +175,56 @@ a:hover {
   color: #d1aaff;
 }
 
-/* ====== Destaque do item de menu selecionado ====== */
 #menu-fixo ul li a.ativo {
   color: #ffdd57;
   text-decoration: underline;
   border-bottom: 2px solid #ffdd57;
 }
 
-/* ====== Modo Escuro - item ativo ====== */
 body.dark-mode #menu-fixo ul li a.ativo {
   color: #ffe484;
   border-bottom: 2px solid #ffe484;
 }
 
-/* Dark mode */
+/* Menu Hamburguer (mobile) */
+#menu-toggle {
+  display: none;
+  font-size: 1.8em;
+  position: fixed;
+  top: 10px;
+  left: 15px;
+  color: white;
+  background: none;
+  border: none;
+  z-index: 1003;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  #menu-toggle {
+    display: block;
+  }
+
+  #menu-fixo ul {
+    flex-direction: column;
+    background-color: #6a0dad;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    display: none;
+  }
+
+  #menu-fixo ul.ativo {
+    display: flex;
+  }
+
+  body {
+    padding-top: 80px; /* mais espaço p/ menu hamburguer */
+  }
+}
+
+/* DARK MODE */
 body.dark-mode {
   background-color: #121212;
   color: #ddd;
@@ -258,52 +262,12 @@ body.dark-mode #menu-fixo ul li a:hover,
 body.dark-mode #menu-fixo ul li a:focus {
   color: #bb86fc;
 }
-/* ... (mantém o restante do seu CSS como está até aqui) ... */
 
-@media (max-width: 768px) {
-  body {
-    padding-top: 100px; /* Espaço para o menu fixo não cobrir o conteúdo */
-  }
-
-  h1 {
-    margin-top: 0;
-    padding-top: 10px;
-  }
-
-  #menu-fixo ul {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  #menu-fixo ul li {
-    width: 100%;
-  }
-
-  main {
-    margin-top: 0;
-  }
-}
-
-
-  .linguagens img,
-  .jogos img {
-    width: 60px;
-    height: 60px;
-  }
-
-  #btn-darkmode {
-    padding: 8px 12px;
-    font-size: 0.9em;
-  }
-}
-
-/* Safari Mobile fix (garante imagens redimensionadas) */
+/* Imagens no Safari mobile */
 @supports (-webkit-touch-callout: none) {
   .linguagens img,
   .jogos img {
-    max-width: 100%;
-    height: auto;
-    object-fit: contain;
-    display: block;
+    width: 50px;
+    height: 50px;
   }
 }
