@@ -272,3 +272,12 @@ body.dark-mode #menu-fixo ul li a:focus {
     height: 50px;
   }
 }
+/* Animação fallback para Safari e compatibilidade geral */
+.animate__animated {
+  opacity: 0;
+  transition: opacity 0.8s ease-in;
+}
+
+.animate__animated.visivel {
+  opacity: 1;
+}

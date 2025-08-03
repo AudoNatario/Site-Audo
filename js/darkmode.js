@@ -94,20 +94,31 @@ menuLinks.forEach(link => {
 document.addEventListener('DOMContentLoaded', () => {
   const elementos = document.querySelectorAll('main.animate__animated');
 
-  const observer = new IntersectionObserver((entries, observer) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('animate__fadeIn');
-        observer.unobserve(entry.target); // ANIMA SÓ UMA VEZ
-      }
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate__fadeIn');
+          entry.target.classList.add('visivel'); // ajuda o CSS a aplicar opacidade
+          observer.unobserve(entry.target); // anima só 1 vez
+        }
+      });
+    }, {
+      threshold: 0.1,
+      rootMargin: '0px 0px -10% 0px'
     });
-  }, {
-    threshold: 0.2, // Ativa quando 20% do elemento estiver visível
-  });
 
-  elementos.forEach(el => {
-    observer.observe(el);
-  });
+    elementos.forEach(el => {
+      observer.observe(el);
+    });
+  } else {
+    // Fallback para navegadores muito antigos
+    elementos.forEach(el => {
+      el.classList.add('animate__fadeIn');
+      el.classList.add('visivel');
+    });
+  }
 });
+
 
 
