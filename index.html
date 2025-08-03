@@ -1,48 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Meu Universo Digital | Audo Natário</title>
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
-  />
-  <link rel="stylesheet" href="estilos/style.css" />
-  <script defer src="js/darkmode.js"></script>
-</head>
+  <title data-key="titulo">Meu Universo Digital | Audo Natário</title>
 
+  <!-- Animate.css -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+  <link rel="stylesheet" href="estilos/style.css" />
+
+  <!-- Scripts -->
+  <script defer src="js/darkmode.js"></script>
+  <script defer src="js/lang.js"></script>
+</head>
 <body>
   <header>
-    <button id="btn-darkmode">Modo Escuro</button>
+    <button id="btn-darkmode" data-key="btn-darkmode-dark">Modo Escuro</button>
+    <button id="btn-idioma" data-key="btn-idioma">EN</button>
+
     <nav id="menu-fixo">
-      <!-- Troquei id para btn-mobile para bater com JS -->
-      <button id="btn-mobile" aria-label="Abrir Menu">&#9776;</button> 
+      <button id="btn-mobile" aria-label="Abrir Menu">&#9776;</button>
       <ul id="menu-links">
-        <li><a href="#curiosidades">Sobre Mim</a></li>
-        <li><a href="#aprendizado">O que estou aprendendo</a></li>
-        <li><a href="#hobbies">Hobbies e Jogos</a></li>
-        <li><a href="#projetos">Projetos</a></li>
-        <li><a href="#cursos">Cursos</a></li>
-        <li><a href="#contato">Contato</a></li>
+        <li><a href="#curiosidades" data-key="curiosidades">Sobre Mim</a></li>
+        <li><a href="#aprendizado" data-key="aprendizado">O que estou aprendendo</a></li>
+        <li><a href="#hobbies" data-key="hobbies">Hobbies e Jogos</a></li>
+        <li><a href="#projetos" data-key="projetos">Projetos</a></li>
+        <li><a href="#cursos" data-key="cursos">Cursos</a></li>
+        <li><a href="#contato" data-key="contato">Contato</a></li>
       </ul>
     </nav>
   </header>
 
-  <h1>Meu Universo Digital | Audo Natário</h1>
+  <h1 data-key="titulo">Meu Universo Digital | Audo Natário</h1>
 
   <div class="container">
-    <main id="curiosidades" class="animate__animated animate__fadeIn animate__delay-6s">
-      <h2>Sobre Mim</h2>
-      <p>Nasci em <strong>Maringá - Paraná</strong> em 2006. Há mais de 10 anos, me mudei para o estado do <strong>Mato Grosso do Sul</strong>, onde cresci e desenvolvi meu interesse por tecnologia.</p>
-      <p>Hoje sou estudante de <strong>Ciência da Computação</strong> na <strong>UCDB - Universidade Católica Dom Bosco</strong>. Este portfólio reúne minha história, meus interesses e meus projetos em desenvolvimento.</p>
+    <main id="curiosidades" class="animate__animated">
+      <h2 data-key="curiosidades">Sobre Mim</h2>
+      <p data-key="curiosidadesText0">Nasci em Maringá - Paraná em 2006. Há mais de 10 anos, me mudei para o estado do Mato Grosso do Sul, onde cresci e desenvolvi meu interesse por tecnologia.</p>
+      <p data-key="curiosidadesText1">Hoje sou estudante de Ciência da Computação na UCDB - Universidade Católica Dom Bosco. Este portfólio reúne minha história, meus interesses e meus projetos em desenvolvimento.</p>
     </main>
 
-    <main id="aprendizado" class="animate__animated animate__fadeIn animate__delay-1s">
-      <h2>O que estou aprendendo</h2>
-      <p>Atualmente estudando:</p>
+    <main id="aprendizado" class="animate__animated">
+      <h2 data-key="aprendizado">O que estou aprendendo</h2>
+      <p data-key="aprendizadoIntro">Atualmente estudando:</p>
       <ul>
-        <li>HTML, CSS e JavaScript</li>
-        <li>Python com o curso do Gustavo Guanabara</li>
-        <li>Java, PHP e SQL</li>
+        <li data-key="aprendizadoList0">HTML, CSS e JavaScript</li>
+        <li data-key="aprendizadoList1">Python com o curso do Gustavo Guanabara</li>
+        <li data-key="aprendizadoList2">Java, PHP e SQL</li>
       </ul>
       <div class="linguagens">
         <img src="imagens/html5.png" alt="HTML" />
@@ -55,9 +59,9 @@
       </div>
     </main>
 
-    <main id="hobbies" class="animate__animated animate__fadeIn animate__delay-2s">
-      <h2>Hobbies e Jogos</h2>
-      <p>Amo jogar e tive curiosidades sobre como eles são desenvolvidos.</p>
+    <main id="hobbies" class="animate__animated">
+      <h2 data-key="hobbies">Hobbies e Jogos</h2>
+      <p data-key="hobbiesText">Amo jogar e tive curiosidades sobre como eles são desenvolvidos.</p>
       <div class="jogos">
         <img src="imagens/valorant.jpg" alt="Valorant" />
         <img src="imagens/gtav.png" alt="GTA V" />
@@ -70,39 +74,36 @@
       </div>
     </main>
 
-    <main id="projetos" class="animate__animated animate__fadeIn animate__delay-3s">
-      <h2>Projetos</h2>
-      <p>Alguns projetos que desenvolvi:</p>
+    <main id="projetos" class="animate__animated">
+      <h2 data-key="projetos">Projetos</h2>
+      <p data-key="projetosText">Alguns projetos que desenvolvi:</p>
       <ul>
-        <li><strong>Calculadora Simples:</strong> Python + lógica de programação</li>
-        <li><strong>Página de Cadastro:</strong> HTML + CSS + JavaScript</li>
+        <li data-key="projetosList0"><strong>Calculadora Simples:</strong> Python + lógica de programação</li>
+        <li data-key="projetosList1"><strong>Página de Cadastro:</strong> HTML + CSS + JavaScript</li>
       </ul>
-      <p>Mais no meu <a href="https://github.com/AudoNatario" target="_blank" rel="noopener noreferrer">GitHub</a>.</p>
+      <p><a href="https://github.com/AudoNatario" target="_blank" rel="noopener noreferrer" data-key="projetosLink">Mais no meu GitHub.</a></p>
     </main>
 
-    <main id="cursos" class="animate__animated animate__fadeIn animate__delay-4s">
-      <h2>Cursos e Formação</h2>
-      <p>Confira os cursos que já concluí e minhas principais formações:</p>
+    <main id="cursos" class="animate__animated">
+      <h2 data-key="cursos">Cursos e Formação</h2>
+      <p data-key="cursosText">Confira os cursos que já concluí e minhas principais formações:</p>
       <ul class="lista-cursos">
-        <li><strong>Python 3 – Mundo 1 e 2 (80h)</strong> – <span class="fonte-curso">Curso em Vídeo / CEV</span></li>
-        <li><strong>JavaScript (40h)</strong> – <span class="fonte-curso">Curso em Vídeo / CEV</span></li>
-        <li><strong>Git e GitHub (20h)</strong> – <span class="fonte-curso">Curso em Vídeo / CEV</span></li>
-        <li><strong>HTML5 e CSS3 (40h)</strong> – <span class="fonte-curso">Curso em Vídeo / CEV</span></li>
-        <li><strong>Conceitos Básicos de Web (HTML/CSS/JS)</strong> – <span class="fonte-curso">Fundação Bradesco</span></li>
-        <li><strong>Assistente Administrativo</strong> – <span class="fonte-curso">SENAC</span></li>
-        <li><strong>Excel</strong> – <span class="fonte-curso">Fundação Bradesco</span></li>
-        <li><strong>Lógica de Programação</strong> – <span class="fonte-curso">Fundação Bradesco</span></li>
-        <li><strong>Power BI</strong> – <span class="fonte-curso">Curso pelo YouTube</span></li>
+        <li><strong>Python 3 – Mundo 1 e 2 (80h)</strong> – Curso em Vídeo / CEV</li>
+        <li><strong>JavaScript (40h)</strong> – Curso em Vídeo / CEV</li>
+        <li><strong>Git e GitHub (20h)</strong> – Curso em Vídeo / CEV</li>
+        <li><strong>HTML5 e CSS3 (40h)</strong> – Curso em Vídeo / CEV</li>
+        <li><strong>Conceitos Básicos de Web (HTML/CSS/JS)</strong> – Fundação Bradesco</li>
+        <li><strong>Assistente Administrativo</strong> – SENAC</li>
+        <li><strong>Excel</strong> – Fundação Bradesco</li>
+        <li><strong>Lógica de Programação</strong> – Fundação Bradesco</li>
+        <li><strong>Power BI</strong> – Curso pelo YouTube</li>
       </ul>
     </main>
 
-    <main id="contato" class="animate__animated animate__fadeIn animate__delay-5s">
-      <h2>Contato</h2>
-      <p>Me envie um e-mail: <a href="mailto:audo7natario@gmail.com">audo7natario@gmail.com</a></p>
+    <main id="contato" class="animate__animated">
+      <h2 data-key="contato">Contato</h2>
+      <p><span data-key="email">Me envie um e-mail</span>: <a href="mailto:audo7natario@gmail.com">audo7natario@gmail.com</a></p>
     </main>
   </div>
-
-  <script src="js/darkmode.js"></script>
-  <script src="js/menu.js"></script> <!-- Novo arquivo JS para o menu -->
 </body>
 </html>
