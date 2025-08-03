@@ -91,3 +91,25 @@ menuLinks.forEach(link => {
     }
   });
 });
+document.addEventListener('DOMContentLoaded', () => {
+  const elementos = document.querySelectorAll('main.animate__animated');
+
+  const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('animate__fadeIn');
+        // Se quiser animar só uma vez, descomente a linha abaixo:
+        // observer.unobserve(entry.target);
+      } else {
+        entry.target.classList.remove('animate__fadeIn');
+      }
+    });
+  }, {
+    threshold: 0.2, // 20% do elemento visível para ativar
+  });
+
+  elementos.forEach(el => {
+    observer.observe(el);
+  });
+});
+
