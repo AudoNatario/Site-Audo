@@ -26,6 +26,15 @@ const textos = {
     'projetosList1': 'Página de Cadastro: HTML + CSS + JavaScript',
     'cursos': 'Cursos',
     'cursosText': 'Confira os cursos que já concluí e minhas principais formações:',
+    'curso0': '<strong>Python 3 – Mundo 1 e 2 (80h)</strong> – Curso em Vídeo / CEV',
+    'curso1': '<strong>JavaScript (40h)</strong> – Curso em Vídeo / CEV',
+    'curso2': '<strong>Git e GitHub (20h)</strong> – Curso em Vídeo / CEV',
+    'curso3': '<strong>HTML5 e CSS3 (40h)</strong> – Curso em Vídeo / CEV',
+    'curso4': '<strong>Conceitos Básicos de Web (HTML/CSS/JS)</strong> – Fundação Bradesco',
+    'curso5': '<strong>Assistente Administrativo</strong> – SENAC',
+    'curso6': '<strong>Excel</strong> – Fundação Bradesco',
+    'curso7': '<strong>Lógica de Programação</strong> – Fundação Bradesco',
+    'curso8': '<strong>Power BI</strong> – Curso pelo YouTube',
     'contato': 'Contato',
     'email': 'Me envie um e-mail'
   },
@@ -50,6 +59,15 @@ const textos = {
     'projetosList1': 'Registration Page: HTML + CSS + JavaScript',
     'cursos': 'Courses',
     'cursosText': 'Check out the courses I have completed and my main qualifications:',
+    'curso0': '<strong>Python 3 – World 1 and 2 (80h)</strong> – Curso em Vídeo / CEV',
+    'curso1': '<strong>JavaScript (40h)</strong> – Curso em Vídeo / CEV',
+    'curso2': '<strong>Git and GitHub (20h)</strong> – Curso em Vídeo / CEV',
+    'curso3': '<strong>HTML5 and CSS3 (40h)</strong> – Curso em Vídeo / CEV',
+    'curso4': '<strong>Basic Web Concepts (HTML/CSS/JS)</strong> – Fundação Bradesco',
+    'curso5': '<strong>Administrative Assistant</strong> – SENAC',
+    'curso6': '<strong>Excel</strong> – Fundação Bradesco',
+    'curso7': '<strong>Programming Logic</strong> – Fundação Bradesco',
+    'curso8': '<strong>Power BI</strong> – Course on YouTube',
     'contato': 'Contact',
     'email': 'Send me an email'
   }
@@ -93,7 +111,12 @@ function aplicarIdioma() {
       if (key === 'email') {
         el.innerHTML = `${t[key]}: <a href="mailto:audo7natario@gmail.com">audo7natario@gmail.com</a>`;
       } else {
-        el.textContent = t[key];
+        // Para tags que podem conter HTML (ex: lista de cursos)
+        if (key.startsWith('curso')) {
+          el.innerHTML = t[key];
+        } else {
+          el.textContent = t[key];
+        }
       }
     }
   });
@@ -124,7 +147,7 @@ window.addEventListener('scroll', () => {
   menuLinks.forEach(link => {
     const section = document.querySelector(link.getAttribute('href'));
     if (!section) return;
-    const top = section.offsetTop - 80;
+    const top = section.offsetTop - 110; // ajuste para header + menu
     const height = section.offsetHeight;
     if (scrollY >= top && scrollY < top + height) {
       menuLinks.forEach(l => l.classList.remove('ativo'));
@@ -143,6 +166,7 @@ menuLinks.forEach(link => {
   });
 });
 
+// Animação fade-in nos main
 document.addEventListener('DOMContentLoaded', () => {
   const elementos = document.querySelectorAll('main.animate__animated');
   if ('IntersectionObserver' in window) {
@@ -167,6 +191,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 });
 
+// Aplica idioma ao carregar página
 document.addEventListener('DOMContentLoaded', () => {
   aplicarIdioma();
 });
