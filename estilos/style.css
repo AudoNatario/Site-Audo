@@ -121,42 +121,82 @@ a:hover {
   color: #5500aa;
 }
 
-/* Botões fixos */
-#btn-darkmode, #btn-idioma {
-  position: fixed;
-  top: 15px;
-  background-color: #6a0dad;
-  border: none;
-  color: white;
-  padding: 10px 16px;
-  border-radius: 8px;
-  font-weight: bold;
-  cursor: pointer;
-  box-shadow: 0 0 10px rgba(106, 13, 173, 0.7);
-  transition: background-color 0.3s;
-  z-index: 1002;
-}
-
-#btn-darkmode:hover, #btn-idioma:hover {
-  background-color: #5500aa;
-}
-
-#btn-darkmode {
-  right: 15px;
-}
-
-#btn-idioma {
-  left: 15px;
-}
-
-/* ===== MENU FIXO ===== */
-#menu-fixo {
+/* ===== HEADER ===== */
+header {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   background-color: #6a0dad;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  z-index: 1002;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+}
+
+.left-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Botão hambúrguer */
+#btn-mobile {
+  font-size: 1.8em;
+  color: white;
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: none;
+  user-select: none;
+}
+
+/* Botão de idioma */
+#btn-idioma {
+  background-color: #5500aa;
+  border: none;
+  color: white;
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 0 8px rgba(85, 0, 170, 0.8);
+  transition: background-color 0.3s;
+  user-select: none;
+}
+
+#btn-idioma:hover {
+  background-color: #7a00ff;
+}
+
+/* Botão darkmode */
+#btn-darkmode {
+  background-color: #5500aa;
+  border: none;
+  color: white;
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 0 8px rgba(85, 0, 170, 0.8);
+  transition: background-color 0.3s;
+  user-select: none;
+}
+
+#btn-darkmode:hover {
+  background-color: #7a00ff;
+}
+
+/* ===== MENU FIXO ===== */
+#menu-fixo {
+  background-color: #6a0dad;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  width: 100%;
+  position: fixed;
+  top: 50px;
+  left: 0;
   z-index: 1001;
 }
 
@@ -194,60 +234,7 @@ body.dark-mode #menu-fixo ul li a.ativo {
   border-bottom: 2px solid #ffe484;
 }
 
-/* Botão Hamburguer (mobile) */
-#btn-mobile {
-  display: none;
-  font-size: 1.8em;
-  position: fixed;
-  top: 10px;
-  left: 15px;
-  color: white;
-  background: none;
-  border: none;
-  z-index: 1003;
-  cursor: pointer;
-}
-
-#btn-idioma {
-  position: fixed;
-  left: 15px;
-  top: 60px;
-  background-color: #6a0dad; /* roxo escuro */
-  border: none;
-  color: white;
-  padding: 10px 16px;
-  border-radius: 8px;
-  font-weight: bold;
-  cursor: pointer;
-  box-shadow: 0 0 10px rgba(106, 13, 173, 0.7);
-  transition: background-color 0.3s;
-  z-index: 1002;
-}
-
-#btn-idioma:hover {
-  background-color: #5500aa; /* roxo mais escuro no hover */
-}
-
-#btn-darkmode {
-  position: fixed;
-  top: 15px;
-  right: 15px;
-  background-color: #6a0dad;
-  border: none;
-  color: white;
-  padding: 10px 16px;
-  border-radius: 8px;
-  font-weight: bold;
-  cursor: pointer;
-  box-shadow: 0 0 10px rgba(106, 13, 173, 0.7);
-  transition: background-color 0.3s;
-  z-index: 1002;
-}
-
-#btn-darkmode:hover {
-  background-color: #5500aa;
-}
-
+/* ===== MOBILE ===== */
 @media (max-width: 768px) {
   #btn-mobile {
     display: block;
@@ -257,7 +244,7 @@ body.dark-mode #menu-fixo ul li a.ativo {
     flex-direction: column;
     background-color: #6a0dad;
     position: absolute;
-    top: 60px;
+    top: 50px;
     left: 0;
     width: 100%;
     display: none;
@@ -268,16 +255,9 @@ body.dark-mode #menu-fixo ul li a.ativo {
   }
 
   body {
-    padding-top: 80px;
+    padding-top: 100px;
   }
 }
-  #menu-fixo ul.aberto {
-    display: flex;
-  }
-
-  body {
-    padding-top: 80px;
-  }
 
 /* DARK MODE */
 body.dark-mode {
@@ -307,6 +287,10 @@ body.dark-mode a {
 
 body.dark-mode a:hover {
   color: #d1aaff;
+}
+
+body.dark-mode header {
+  background-color: #5500aa;
 }
 
 body.dark-mode #menu-fixo {
