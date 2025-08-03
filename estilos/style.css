@@ -187,7 +187,7 @@ body.dark-mode #menu-fixo ul li a.ativo {
 }
 
 /* Menu Hamburguer (mobile) */
-#menu-toggle {
+#btn-mobile {
   display: none;
   font-size: 1.8em;
   position: fixed;
@@ -201,7 +201,7 @@ body.dark-mode #menu-fixo ul li a.ativo {
 }
 
 @media (max-width: 768px) {
-  #menu-toggle {
+  #btn-mobile {
     display: block;
   }
 
@@ -215,7 +215,7 @@ body.dark-mode #menu-fixo ul li a.ativo {
     display: none;
   }
 
-  #menu-fixo ul.ativo {
+  #menu-fixo ul.aberto {
     display: flex;
   }
 
@@ -223,6 +223,7 @@ body.dark-mode #menu-fixo ul li a.ativo {
     padding-top: 80px; /* mais espaço p/ menu hamburguer */
   }
 }
+
 
 /* DARK MODE */
 body.dark-mode {

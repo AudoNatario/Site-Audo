@@ -1,7 +1,7 @@
 const btn = document.getElementById('btn-darkmode');
-const menuLinks = document.querySelectorAll('#menu-fixo a');
 const btnMobile = document.getElementById('btn-mobile');
 const navMenu = document.querySelector('#menu-fixo ul');
+const menuLinks = document.querySelectorAll('#menu-fixo a');
 
 // === DARK MODE ===
 
@@ -78,8 +78,16 @@ window.addEventListener('scroll', () => {
   });
 });
 
-// === MENU HAMBÚRGUER MOBILE ===
-
+// Abre/fecha menu hamburguer ao clicar no botão
 btnMobile.addEventListener('click', () => {
   navMenu.classList.toggle('aberto');
+});
+
+// Fecha o menu quando clicar em algum link (mobile)
+menuLinks.forEach(link => {
+  link.addEventListener('click', () => {
+    if (window.innerWidth <= 768) {
+      navMenu.classList.remove('aberto');
+    }
+  });
 });
