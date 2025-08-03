@@ -1,3 +1,4 @@
+/* Reset e base */
 *, *::before, *::after {
   box-sizing: border-box;
   -webkit-font-smoothing: antialiased;
@@ -14,7 +15,7 @@ body {
   flex-direction: column;
   align-items: center;
   transition: background-color 0.4s, color 0.4s;
-  padding-top: 60px;
+  padding-top: 60px; /* espaço para header fixo */
   min-height: 100vh;
 }
 
@@ -243,20 +244,34 @@ body.dark-mode #menu-fixo ul li a.ativo {
     flex-direction: column;
     background-color: #6a0dad;
     position: absolute;
-    top: 60px;
+    top: 50px;
     left: 0;
     width: 100%;
     display: none;
   }
-    #menu-fixo {
-    top: 60px; /* sobe um pouco mais o menu fixo */
-  }
+
   #menu-fixo ul.aberto {
     display: flex;
   }
 
   body {
-    padding-top: 130px;
+    padding-top: 80px; /* ajustado para diminuir espaço excessivo no mobile */
+  }
+
+  #menu-fixo {
+    top: 40px; /* menu mais perto do topo */
+  }
+
+  .left-header {
+    gap: 5px; /* menor espaço entre botões */
+  }
+
+  #btn-mobile {
+    font-size: 1.6em;
+  }
+
+  header {
+    padding: 8px 15px;
   }
 }
 

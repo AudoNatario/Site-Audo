@@ -24,6 +24,7 @@ const textos = {
     'projetosText': 'Alguns projetos que desenvolvi:',
     'projetosList0': 'Calculadora Simples: Python + lógica de programação',
     'projetosList1': 'Página de Cadastro: HTML + CSS + JavaScript',
+    'projetosLink': 'Mais no meu GitHub.',
     'cursos': 'Cursos',
     'cursosText': 'Confira os cursos que já concluí e minhas principais formações:',
     'curso0': '<strong>Python 3 – Mundo 1 e 2 (80h)</strong> – Curso em Vídeo / CEV',
@@ -57,6 +58,7 @@ const textos = {
     'projetosText': "Some projects I've developed:",
     'projetosList0': 'Simple Calculator: Python + programming logic',
     'projetosList1': 'Registration Page: HTML + CSS + JavaScript',
+    'projetosLink': 'More on my GitHub.',
     'cursos': 'Courses',
     'cursosText': 'Check out the courses I have completed and my main qualifications:',
     'curso0': '<strong>Python 3 – World 1 and 2 (80h)</strong> – Curso em Vídeo / CEV',
@@ -110,13 +112,11 @@ function aplicarIdioma() {
     if (t[key]) {
       if (key === 'email') {
         el.innerHTML = `${t[key]}: <a href="mailto:audo7natario@gmail.com">audo7natario@gmail.com</a>`;
+      } else if (key.startsWith('curso') || key === 'projetosLink') {
+        // Permite HTML nas li/cursos e no link dos projetos
+        el.innerHTML = t[key];
       } else {
-        // Para tags que podem conter HTML (ex: lista de cursos)
-        if (key.startsWith('curso')) {
-          el.innerHTML = t[key];
-        } else {
-          el.textContent = t[key];
-        }
+        el.textContent = t[key];
       }
     }
   });
